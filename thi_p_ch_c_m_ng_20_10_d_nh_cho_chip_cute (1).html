@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Women's Day Chip nhaaa! 💕 - Từ Ng Dz nhất T.g</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,700&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti & FontAwesome -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        chip: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        cursive: ['"Dancing Script"', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Tối ưu hóa triệt để chống nảy & phóng to trên điện thoại */
+        *, *::before, *::after {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe4e6 0%, #fecdd3 40%, #fda4af 75%, #fff1f2 100%);
+            background-size: 200% 200%;
+            animation: gradientMove 15s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid rgba(255, 255, 255, 0.95);
+        }
+
+        /* Envelope 3D Styles */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+
+        .envelope-wrapper {
+            transform-style: preserve-3d;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .envelope-flap {
+            transform-origin: top;
+            transition: transform 0.6s ease-in-out;
+            z-index: 30;
+        }
+
+        .envelope-open .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        /* Sakura Petals Canvas */
+        #petal-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Glow animation for card */
+        @keyframes heartGlow {
+            0%, 100% {
+                box-shadow: 0 0 25px rgba(244, 63, 94, 0.3), 0 0 50px rgba(251, 113, 133, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 45px rgba(244, 63, 94, 0.5), 0 0 70px rgba(251, 113, 133, 0.35);
+            }
+        }
+
+        .heart-glow {
+            animation: heartGlow 3s infinite ease-in-out;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(3deg); }
+        }
+        .floating { animation: float 3.5s ease-in-out infinite; }
+
+        @keyframes pulseSlow {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        .pulse-slow { animation: pulseSlow 2s ease-in-out infinite; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #ffe4e6; }
+        ::-webkit-scrollbar-thumb { background: #fb7185; border-radius: 10px; }
+
+        /* Animation khi giọt nước mắt rơi của Chip mít ướt */
+        @keyframes tearDrop {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(18px) scale(0.6); opacity: 0; }
+        }
+        .tear-anim { animation: tearDrop 1.2s infinite ease-in; }
+
+        /* Animation khi con ma biến mất */
+        @keyframes ghostVanish {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            50% { transform: scale(1.2) rotate(15deg); opacity: 0.4; }
+            100% { transform: scale(0) rotate(-30deg); opacity: 0; }
+        }
+        .ghost-defeated { animation: ghostVanish 1.5s forwards ease-out; }
+
+        /* Animation cho hiệu ứng +1 nảy lên khi bấm nút 207 */
+        @keyframes popUpPlus {
+            0% { transform: translate(-50%, 0) scale(0.6); opacity: 1; }
+            100% { transform: translate(-50%, -40px) scale(1.4); opacity: 0; }
+        }
+        .plus-one-anim {
+            animation: popUpPlus 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800 font-sans relative selection:bg-rose-200 selection:text-rose-800">
+
+    <!-- Audio MP3 Catbox / Lain -->
+    <audio id="bgMusic" loop src="https://pomf2.lain.la/f/qoxclipl.mp3" preload="auto"></audio>
+
+    <!-- Canvas Mưa Hoa Falling Sakura/Roses -->
+    <canvas id="petal-canvas"></canvas>
+
+    <!-- Header Bar -->
+    <header class="fixed top-0 left-0 right-0 z-40 px-4 py-3 bg-white/80 backdrop-blur-md border-b border-rose-200 shadow-xs flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <span class="text-2xl floating">🌸</span>
+            <span class="font-bold text-lg bg-gradient-to-r from-rose-600 via-pink-600 to-red-600 bg-clip-text text-transparent font-serif">
+                Happy 20/10 Chip Cute 💕
+            </span>
+        </div>
+
+        <button id="music-btn" onclick="toggleMusic()" class="px-4 py-2 rounded-full bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white transition-all flex items-center space-x-2 shadow-md hover:shadow-lg active:scale-95 text-xs sm:text-sm font-semibold">
+            <i id="music-icon" class="fas fa-music"></i>
+            <span id="music-text">Bật Nhạc 🎶</span>
+        </button>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="pt-20 pb-16 px-4 max-w-2xl mx-auto min-h-screen flex flex-col justify-center items-center relative z-20">
+
+        <!-- STAGE 1: ENVELOPE UNBOXING -->
+        <div id="envelope-stage" class="w-full flex flex-col items-center justify-center transition-all duration-700 my-auto">
+            <div class="text-center mb-8 floating">
+                <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/95 border border-rose-300 text-rose-600 text-xs sm:text-sm font-bold shadow-xs mb-3">
+                    <span>✨</span> Happy Women's Day 20/10 <span>✨</span>
+                </span>
+                <h1 class="text-3xl sm:text-4xl font-serif font-bold text-rose-900 leading-tight">
+                    Có 1 món quà đặc biệt gửi tới<br><span class="text-4xl sm:text-5xl font-cursive text-rose-600">Chip Cute 💕</span>
+                </h1>
+                <p class="text-xs sm:text-sm text-rose-700 mt-2">Bấm vào phong thư để xem thiệp từ <b>Ng Dz nhất T.g</b> nha!</p>
+            </div>
+
+            <!-- Envelope Component -->
+            <div onclick="openEnvelope()" class="perspective-1000 cursor-pointer group relative w-72 sm:w-80 h-48 sm:h-52 my-4">
+                <div id="envelope" class="envelope-wrapper relative w-full h-full bg-rose-200 rounded-2xl shadow-2xl border-2 border-rose-300 flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:rotate-1">
+                    <div class="envelope-flap absolute top-0 left-0 right-0 h-28 bg-rose-300 rounded-t-2xl border-b-2 border-rose-400/50"></div>
+                    
+                    <div class="absolute z-40 w-16 h-16 bg-gradient-to-tr from-rose-600 to-pink-500 rounded-full shadow-lg border-2 border-white flex items-center justify-center text-white text-2xl pulse-slow">
+                        💌
+                    </div>
+
+                    <div class="absolute inset-x-0 h-6 bg-rose-300/60 top-1/2 -translate-y-1/2"></div>
+                    <div class="absolute inset-y-0 w-6 bg-rose-300/60 left-1/2 -translate-x-1/2"></div>
+
+                    <div class="absolute bottom-3 text-rose-700 font-serif font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-1">
+                        <span>💖</span> TO: CHIP CUTE 💕
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-xs text-rose-600 font-semibold animate-bounce mt-4 flex items-center gap-1">
+                <i class="fas fa-hand-pointer"></i> Chạm nhẹ để mở thiệp
+            </p>
+        </div>
+
+        <!-- STAGE 2: MAIN CARD CONTENT -->
+        <div id="card-stage" class="w-full hidden transition-all duration-1000 opacity-0 transform translate-y-8">
+
+            <div class="text-center mb-6">
+                <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/90 border border-rose-300 text-rose-600 text-xs font-bold shadow-xs mb-2">
+                    <span class="text-amber-400">✨</span> Happy Women's Day <span class="text-amber-400">✨</span>
+                </span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-rose-900 leading-tight">
+                    Happy Women's Day Chip nhaaa! 💕
+                </h1>
+                <p class="text-xs sm:text-sm text-rose-700 font-semibold mt-1">From: Ng Dz nhất T.g 😎</p>
+            </div>
+
+            <!-- Glass Card Container -->
+            <div class="w-full glass-card rounded-3xl shadow-2xl p-6 sm:p-8 heart-glow relative overflow-hidden">
+                
+                <div class="absolute -top-12 -left-12 w-36 h-36 bg-pink-300/40 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="absolute -bottom-12 -right-12 w-36 h-36 bg-rose-400/30 rounded-full blur-2xl pointer-events-none"></div>
+
+                <div class="flex flex-col items-center text-center space-y-6">
+                    
+                    <!-- Khung Ảnh Chip Cố Định -->
+                    <div class="relative group">
+                        <div class="w-56 sm:w-64 h-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-rose-100 relative z-10 flex items-center justify-center">
+                            <img id="chipPhoto" src="https://files.catbox.moe/37jhd0.jpg" alt="Chip Cute" class="w-full h-auto object-cover rounded-xl" />
+                        </div>
+
+                        <div class="absolute -inset-2 bg-gradient-to-r from-rose-400 via-pink-400 to-red-400 rounded-2xl blur-md opacity-70"></div>
+                        <span class="absolute -bottom-3 -right-3 z-20 text-3xl floating">💖</span>
+                        <span class="absolute -top-3 -left-3 z-20 text-3xl floating" style="animation-delay: 1s;">✨</span>
+                    </div>
+
+                    <div>
+                        <h2 class="text-3xl sm:text-4xl font-cursive font-bold text-rose-700">
+                            Chip Cute 💕
+                        </h2>
+                    </div>
+
+                    <!-- Lời Chúc Cá Nhân Hóa -->
+                    <div class="relative w-full max-w-lg bg-rose-50/90 p-5 sm:p-6 rounded-2xl border border-rose-200 shadow-inner">
+                        <i class="fas fa-quote-left text-rose-300 text-2xl absolute top-3 left-3 opacity-60"></i>
+                        
+                        <p id="typewriter-text" class="text-slate-700 leading-relaxed font-sans text-sm sm:text-base font-medium px-3 py-2 min-h-[140px] flex items-center justify-center">
+                            <!-- Typewriter JS điền lời chúc -->
+                        </p>
+
+                        <i class="fas fa-quote-right text-rose-300 text-2xl absolute bottom-3 right-3 opacity-60"></i>
+                    </div>
+
+                    <!-- 4 BUTTONS TƯƠNG TÁC -->
+                    <div class="w-full max-w-md space-y-3 pt-2">
+                        
+                        <div class="grid grid-cols-2 gap-3">
+                            <button onclick="triggerLoveFireworks()" class="py-3 px-4 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg active:scale-95 transition-all flex items-center justify-center space-x-1">
+                                <span>🎉 Bắn Pháo Hoa Tim</span>
+                            </button>
+                            <button onclick="openGiftModal()" class="py-3 px-4 rounded-xl bg-gradient-to-r from-amber-400 to-rose-400 hover:from-amber-500 hover:to-rose-500 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg active:scale-95 transition-all flex items-center justify-center space-x-1">
+                                <span>🎁 Hộp Quà 20/10</span>
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <button onclick="drawFortuneCard()" class="py-3 px-4 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg active:scale-95 transition-all flex items-center justify-center space-x-1">
+                                <span>🥠 Rút Quẻ May Mắn</span>
+                            </button>
+                            <!-- NÚT 207 BẤM - ĐÃ TỐI ƯU CỰC MƯỢT TRÊN MOBILE -->
+                            <button id="surprise-counter-btn" onclick="clickSurpriseBtn(event)" class="relative overflow-hidden py-3 px-3 rounded-xl bg-gradient-to-r from-amber-400 via-rose-400 to-pink-500 hover:from-amber-500 hover:to-pink-600 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-1 border border-rose-200">
+                                <span id="btn-click-effect-container" class="absolute inset-0 pointer-events-none"></span>
+                                <span id="surprise-btn-text" class="relative z-10 text-center leading-tight">🎁✨ Bấm vào đây sẽ có bất ngờ (0/207)</span>
+                                <div id="progress-bar" class="absolute left-0 bottom-0 top-0 bg-white/35 transition-all duration-75" style="width: 0%;"></div>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- TOAST THÔNG BÁO MỐC 50, 100, 150, 200 -->
+    <div id="milestone-toast" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-500 transform -translate-y-10 opacity-0 scale-90">
+        <div class="bg-white/95 backdrop-blur-md px-6 py-3 rounded-2xl border-2 border-rose-400 shadow-2xl flex items-center gap-3">
+            <span id="milestone-emoji" class="text-3xl floating">🐥</span>
+            <div class="text-left">
+                <h4 id="milestone-title" class="text-sm font-bold text-rose-800">Cố lên Chip ơi! 🎉</h4>
+                <p id="milestone-desc" class="text-xs text-rose-600 font-medium">Đã đạt mốc 50/207 rồi đấy!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL HỘP QUÀ -->
+    <div id="gift-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-all duration-300 opacity-0">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full text-center relative border-4 border-rose-300 shadow-2xl transform scale-90 transition-all duration-300" id="gift-modal-card">
+            <button onclick="closeGiftModal()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-3 text-rose-600 floating">
+                🎁
+            </div>
+
+            <h3 class="text-2xl font-serif font-bold text-rose-900 mb-1">Phiếu Quà Tặng 20/10 Đặc Biệt</h3>
+            <p class="text-xs text-rose-600 font-semibold mb-4">Dành riêng cho Chip Cute 💕 (From: Ng Dz nhất T.g)</p>
+
+            <div class="bg-gradient-to-r from-rose-50 to-pink-50 p-4 rounded-2xl border border-rose-200 text-left space-y-2 mb-5 shadow-inner">
+                <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-700 font-medium">
+                    <span class="text-rose-500">✨</span> 1x Buổi đi ăn ngon & trò chuyện siêu vui vẻ
+                </div>
+                <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-700 font-medium">
+                    <span class="text-rose-500">✨</span> 100x Quyền rep tin nhắn siêu nhanh & gửi voice dỗ dành
+                </div>
+                <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-700 font-medium">
+                    <span class="text-rose-500">✨</span> ĐẶC QUYỀN: Bật ngắt bảo vệ ngủ ngon 24/7, không bao giờ lo bị hù! 🛡️
+                </div>
+            </div>
+
+            <button onclick="acceptCoupon()" class="w-full py-3 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-sm shadow-md hover:shadow-lg active:scale-95 transition">
+                Nhận Quà Ngay 💕
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL QUẺ MAY MẮN -->
+    <div id="fortune-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-all duration-300 opacity-0">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full text-center relative border-4 border-purple-300 shadow-2xl transform scale-90 transition-all duration-300" id="fortune-modal-card">
+            <button onclick="closeFortuneModal()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-3 text-purple-600 floating">
+                🥠
+            </div>
+
+            <h3 class="text-2xl font-serif font-bold text-purple-900 mb-2">Quẻ May Mắn 20/10</h3>
+            
+            <div class="bg-purple-50 p-5 rounded-2xl border border-purple-200 my-4 shadow-inner">
+                <p id="fortune-text" class="text-purple-900 font-medium text-sm sm:text-base leading-relaxed"></p>
+            </div>
+
+            <div class="flex gap-2">
+                <button onclick="drawFortuneCard()" class="flex-1 py-3 rounded-xl bg-purple-100 text-purple-700 font-bold text-xs sm:text-sm hover:bg-purple-200 active:scale-95 transition">
+                    Rút Quẻ Khác 🥠
+                </button>
+                <button onclick="closeFortuneModal()" class="flex-1 py-3 rounded-xl bg-purple-600 text-white font-bold text-xs sm:text-sm hover:bg-purple-700 active:scale-95 transition">
+                    Nhận Quẻ 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 207 LẦN BẤM: ANH HÙNG GIẢI CỨU MỸ NHÂN CHIP MÍT ƯỚT -->
+    <div id="surprise-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-all duration-300 opacity-0">
+        <div class="bg-white rounded-3xl p-5 sm:p-7 max-w-md w-full text-center relative border-4 border-rose-400 shadow-2xl transform scale-90 transition-all duration-300 overflow-hidden" id="surprise-modal-card">
+            <button onclick="closeSurpriseModal()" class="absolute top-3 right-3 z-20 text-slate-400 hover:text-slate-600 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="inline-block px-3 py-1 rounded-full bg-rose-100 text-rose-600 text-xs font-bold mb-2">
+                🎉 Kiên nhẫn xuất sắc 207/207!
+            </div>
+            
+            <h3 class="text-xl sm:text-2xl font-serif font-bold text-rose-800 mb-1">Anh Hùng Giải Cứu Mỹ Nhân! 🛡️✨</h3>
+            <p class="text-xs text-slate-500 mb-2">Anh hùng "Ng Dz nhất T.g" đập tan bóng đêm hù dọa nè!</p>
+            
+            <!-- HOẠT HỌA HERO SAVES CHIP MÍT ƯỚT -->
+            <div class="bg-gradient-to-b from-indigo-950 via-purple-900 to-rose-900 rounded-2xl p-4 my-2 border-2 border-rose-300 relative overflow-hidden flex items-center justify-between min-h-[220px] shadow-inner">
+                
+                <!-- CON MA BỊ ĐÁNH VĂNG -->
+                <div class="absolute top-3 right-3 ghost-defeated text-2xl z-0">
+                    👻💥
+                </div>
+
+                <!-- ANH HÙNG (NG DZ NHẤT T.G) -->
+                <div class="flex flex-col items-center z-10 floating">
+                    <svg class="w-24 h-24 sm:w-28 sm:h-28 filter drop-shadow-lg" viewBox="0 0 120 120">
+                        <!-- Áo choàng hero -->
+                        <path d="M 35,50 Q 20,80 15,100 Q 60,110 65,85 Z" fill="#e11d48" />
+                        <!-- Thân & Giáp -->
+                        <rect x="40" y="55" width="40" height="40" rx="10" fill="#3b82f6" />
+                        <path d="M 50,65 L 70,65 L 60,80 Z" fill="#fbbf24" />
+                        <!-- Đầu Hero -->
+                        <circle cx="60" cy="40" r="22" fill="#fed7aa" />
+                        <!-- Tóc Ng Dz -->
+                        <path d="M 38,35 Q 60,15 82,35 Q 75,22 60,22 Q 45,22 38,35 Z" fill="#1e293b" />
+                        <!-- Mắt cool ngầu & Kính râm -->
+                        <rect x="45" y="34" width="30" height="10" rx="3" fill="#0f172a" />
+                        <line x1="45" y1="39" x2="75" y2="39" stroke="#ffffff" stroke-width="1.5" opacity="0.6" />
+                        <!-- Miệng cười tự tin -->
+                        <path d="M 52,48 Q 60,54 68,48" stroke="#9a3412" stroke-width="2" fill="none" stroke-linecap="round" />
+                        <!-- Khiên bảo vệ sáng rực -->
+                        <circle cx="85" cy="65" r="16" fill="#fbbf24" stroke="#ffffff" stroke-width="2" />
+                        <path d="M 85,55 L 85,75 M 75,65 L 95,65" stroke="#dc2626" stroke-width="3" />
+                    </svg>
+                    <span class="text-[10px] sm:text-xs font-bold text-amber-300 bg-slate-900/90 px-2 py-0.5 rounded-full mt-1 border border-amber-400">Ng Dz nhất T.g 🛡️</span>
+                </div>
+
+                <!-- HIỆU ỨNG TIA BẢO VỆ & LÁ CHẮN TIM -->
+                <div class="flex-1 relative h-28 flex items-center justify-center pointer-events-none">
+                    <span class="absolute text-2xl text-amber-300 font-bold floating">✨</span>
+                    <span class="absolute text-3xl text-rose-400 font-bold pulse-slow">🛡️</span>
+                    <span class="absolute text-xl text-pink-300 font-bold" style="animation: ping 1.5s infinite">💖</span>
+                </div>
+
+                <!-- MỸ NHAN CHIP MÍT ƯỚT DỄ THƯƠNG -->
+                <div class="flex flex-col items-center z-10 floating" style="animation-delay: 0.5s;">
+                    <svg class="w-24 h-24 sm:w-28 sm:h-28 filter drop-shadow-lg" viewBox="0 0 120 120">
+                        <!-- Tóc dài xinh xắn -->
+                        <path d="M 30,35 C 20,70 30,100 42,100 C 50,100 45,70 45,55 C 75,55 75,100 85,100 C 95,100 100,70 90,35 C 80,15 40,15 30,35 Z" fill="#7c2d12" />
+                        <!-- Váy hồng -->
+                        <path d="M 42,60 L 78,60 L 88,98 L 32,98 Z" fill="#f43f5e" />
+                        <!-- Mặt Chip -->
+                        <circle cx="60" cy="42" r="20" fill="#fed7aa" />
+                        <!-- Mắt to chớp chớp mít ướt -->
+                        <circle cx="50" cy="40" r="5" fill="#1e293b" />
+                        <circle cx="70" cy="40" r="5" fill="#1e293b" />
+                        <circle cx="48" cy="38" r="2" fill="#ffffff" />
+                        <circle cx="68" cy="38" r="2" fill="#ffffff" />
+                        <!-- Giọt nước mắt mít ướt cực kute -->
+                        <circle cx="44" cy="46" r="2.5" fill="#38bdf8" class="tear-anim" />
+                        <circle cx="76" cy="46" r="2.5" fill="#38bdf8" class="tear-anim" style="animation-delay: 0.4s" />
+                        <!-- Má hồng -->
+                        <ellipse cx="43" cy="45" rx="4" ry="3" fill="#fda4af" />
+                        <ellipse cx="77" cy="45" rx="4" ry="3" fill="#fda4af" />
+                        <!-- Miệng chúm chím -->
+                        <ellipse cx="60" cy="48" rx="3" ry="2" fill="#e11d48" />
+                        <!-- Nơ cài tóc -->
+                        <path d="M 36,25 L 48,20 L 42,30 Z M 36,25 L 48,30 L 42,20 Z" fill="#fb7185" />
+                    </svg>
+                    <span class="text-[10px] sm:text-xs font-bold text-rose-700 bg-rose-100 px-2 py-0.5 rounded-full mt-1 border border-rose-300">Chip Mít Ướt 🥺💕</span>
+                </div>
+
+            </div>
+
+            <div class="mt-3 p-3 bg-rose-50 rounded-xl border border-rose-200 text-center">
+                <p class="text-xs sm:text-sm font-semibold text-rose-800 leading-relaxed">
+                    "Có anh ở đây rồi, từ nay Chip mít ướt không bao giờ sợ bị ai hù nữa nha! Tối cứ yên tâm ngủ thật ngon, luôn luôn rạng rỡ và đáng yêu như thế này nhen! ❤️✨"
+                </p>
+            </div>
+
+            <button onclick="closeSurpriseModal()" class="w-full mt-3 py-3 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-sm shadow-md hover:shadow-lg active:scale-95 transition">
+                Cảm Ơn Anh Hùng Ng Dz nhiềuuu! 💖
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic Core -->
+    <script>
+        const greetingText = "Chúc Chip có một ngày 20/10 thật nhiều niềm vui, lúc nào cũng rạng rỡ, xinh đẹp và gặp thật nhiều điều may mắn. Cảm ơn sự xuất hiện của Chip vì dạo này nhờ có em mà ngày nào của anh cũng thú vị hơn hẳn lunn từ mấy quả nghe voice xong đỏ hết cả mặt, cho tới mấy pha rep tin nhắn nhanh kinh khủng khiếp. Mong là Chip lúc nào cũng giữ được sự đáng yêu, hồn nhiên đó và tối ngủ thật ngon, không lo bị ai hù nữa nhaa:))";
+        
+        let clickCount = 0;
+        const maxClicks = 207;
+
+        const milestones = {
+            50: {
+                title: "Cố lên Chip ơi! 🎉 (50/207)",
+                desc: "Mới 50 lần bấm thôi nè, tai nghe voice sắp đỏ lại rồi đó! 🎧",
+                emoji: "🐣"
+            },
+            100: {
+                title: "Tốc độ rep tin nhắn kinh khủng! 🔥 (100/207)",
+                desc: "Đã 100/207 rồi đấy, Chip tay nhanh dữ vậy! 💨",
+                emoji: "⚡"
+            },
+            150: {
+                title: "Sắp bật lá chắn bảo vệ! 🛡️ (150/207)",
+                desc: "Chỉ còn một chút nữa thôi, anh hùng sắp xuất hiện giải cứu mít ướt rồi!",
+                emoji: "✨"
+            },
+            200: {
+                title: "SIÊU GẦN RỒI CHIP ƠI! 🚨 (200/207)",
+                desc: "Chỉ còn 7 lần bấm nữa! Không sợ bị hù nữa nhaaa!!",
+                emoji: "🎉"
+            }
+        };
+
+        function showMilestoneToast(m) {
+            const toast = document.getElementById('milestone-toast');
+            document.getElementById('milestone-title').innerText = m.title;
+            document.getElementById('milestone-desc').innerText = m.desc;
+            document.getElementById('milestone-emoji').innerText = m.emoji;
+
+            toast.classList.remove('-translate-y-10', 'opacity-0', 'scale-90');
+            toast.classList.add('translate-y-0', 'opacity-100', 'scale-100');
+
+            confetti({ particleCount: 40, spread: 60, origin: { y: 0.2 } });
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100', 'scale-100');
+                toast.classList.add('-translate-y-10', 'opacity-0', 'scale-90');
+            }, 2500);
+        }
+
+        // Đếm số 207 mượt mà trên mobile
+        function clickSurpriseBtn(e) {
+            if (clickCount >= maxClicks) {
+                openSurpriseModal();
+                return;
+            }
+
+            clickCount++;
+            
+            const btnText = document.getElementById('surprise-btn-text');
+            const progressBar = document.getElementById('progress-bar');
+            
+            btnText.innerText = `🎁✨ Bấm vào đây sẽ có bất ngờ (${clickCount}/${maxClicks})`;
+            progressBar.style.width = `${(clickCount / maxClicks) * 100}%`;
+
+            const container = document.getElementById('btn-click-effect-container');
+            const popEl = document.createElement('span');
+            popEl.className = 'absolute text-xs font-black text-rose-600 pointer-events-none plus-one-anim';
+            popEl.style.left = `${e.offsetX || 20}px`;
+            popEl.style.top = `${e.offsetY || 10}px`;
+            popEl.innerText = clickCount % 10 === 0 ? '💖 +1' : '+1';
+            container.appendChild(popEl);
+
+            setTimeout(() => popEl.remove(), 600);
+
+            if (milestones[clickCount]) {
+                showMilestoneToast(milestones[clickCount]);
+            }
+
+            if (clickCount >= maxClicks) {
+                btnText.innerText = `Mở Giải Cứu Mỹ Nhân Ngay! 🛡️✨`;
+                triggerLoveFireworks();
+                setTimeout(() => {
+                    openSurpriseModal();
+                }, 400);
+            }
+        }
+
+        function openSurpriseModal() {
+            const modal = document.getElementById('surprise-modal');
+            const modalCard = document.getElementById('surprise-modal-card');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalCard.classList.remove('scale-90');
+            }, 10);
+            triggerLoveFireworks();
+        }
+
+        function closeSurpriseModal() {
+            const modal = document.getElementById('surprise-modal');
+            const modalCard = document.getElementById('surprise-modal-card');
+            modal.classList.add('opacity-0');
+            modalCard.classList.add('scale-90');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        const fortuneList = [
+            "🌸 Quẻ Sắc Đẹp: 20/10 này Chip sẽ cực kỳ xinh đẹp, nhận được ngập tràn quà tặng và tin nhắn ngọt ngào!",
+            "💖 Quẻ Voice Ngọt: Hôm nay nghe voice là sẽ có người đỏ hết cả mặt vì Chip đó nha!",
+            "⚡ Quẻ Tốc Độ: Chip rep tin nhắn nhanh kinh khủng khiếp, điểm đáng yêu +10000 điểm!",
+            "🛡️ Quẻ Ngủ Ngon: Đã có bùa bảo vệ vĩnh viễn, Chip tha hồ ngủ ngon không lo bị ai hù dọa nữa!"
+        ];
+
+        let isMusicPlaying = false;
+
+        function openEnvelope() {
+            const env = document.getElementById('envelope');
+            env.classList.add('envelope-open');
+            
+            confetti({
+                particleCount: 60,
+                spread: 60,
+                origin: { y: 0.6 }
+            });
+
+            toggleMusic(true);
+
+            setTimeout(() => {
+                const envStage = document.getElementById('envelope-stage');
+                const cardStage = document.getElementById('card-stage');
+                
+                envStage.classList.add('opacity-0', 'scale-90');
+                setTimeout(() => {
+                    envStage.classList.add('hidden');
+                    cardStage.classList.remove('hidden');
+                    setTimeout(() => {
+                        cardStage.classList.remove('opacity-0', 'translate-y-8');
+                        startTypewriter();
+                        triggerLoveFireworks();
+                    }, 50);
+                }, 500);
+            }, 600);
+        }
+
+        function startTypewriter() {
+            const container = document.getElementById('typewriter-text');
+            container.innerHTML = "";
+            let i = 0;
+            function type() {
+                if (i < greetingText.length) {
+                    container.innerHTML += greetingText.charAt(i);
+                    i++;
+                    setTimeout(type, 25);
+                }
+            }
+            type();
+        }
+
+        function triggerLoveFireworks() {
+            const duration = 2.5 * 1000;
+            const animationEnd = Date.now() + duration;
+
+            (function frame() {
+                const timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) return;
+
+                confetti({
+                    particleCount: 6,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#f43f5e', '#fb7185', '#ffffff', '#fda4af']
+                });
+                confetti({
+                    particleCount: 6,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#f43f5e', '#fb7185', '#ffffff', '#fda4af']
+                });
+
+                requestAnimationFrame(frame);
+            }());
+        }
+
+        function openGiftModal() {
+            const modal = document.getElementById('gift-modal');
+            const modalCard = document.getElementById('gift-modal-card');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalCard.classList.remove('scale-90');
+            }, 10);
+            confetti({ particleCount: 70, spread: 70, origin: { y: 0.5 } });
+        }
+
+        function closeGiftModal() {
+            const modal = document.getElementById('gift-modal');
+            const modalCard = document.getElementById('gift-modal-card');
+            modal.classList.add('opacity-0');
+            modalCard.classList.add('scale-90');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function acceptCoupon() {
+            closeGiftModal();
+            triggerLoveFireworks();
+            alert("💖 Đã kích hoạt đặc quyền! Từ nay Chip tha hồ ngủ ngon, đã có Ng Dz nhất T.g bảo vệ rồi nha!");
+        }
+
+        function drawFortuneCard() {
+            const modal = document.getElementById('fortune-modal');
+            const modalCard = document.getElementById('fortune-modal-card');
+            const textEl = document.getElementById('fortune-text');
+            
+            const randomFortune = fortuneList[Math.floor(Math.random() * fortuneList.length)];
+            textEl.innerText = randomFortune;
+
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modalCard.classList.remove('scale-90');
+                }, 10);
+            }
+            confetti({ particleCount: 40, spread: 60 });
+        }
+
+        function closeFortuneModal() {
+            const modal = document.getElementById('fortune-modal');
+            const modalCard = document.getElementById('fortune-modal-card');
+            modal.classList.add('opacity-0');
+            modalCard.classList.add('scale-90');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function toggleMusic(forcePlay = false) {
+            const audio = document.getElementById('bgMusic');
+            const musicIcon = document.getElementById('music-icon');
+            const musicText = document.getElementById('music-text');
+
+            if (isMusicPlaying && !forcePlay) {
+                audio.pause();
+                musicIcon.className = "fas fa-music";
+                musicText.innerText = "Bật Nhạc 🎶";
+                isMusicPlaying = false;
+            } else {
+                audio.play().then(() => {
+                    musicIcon.className = "fas fa-pause";
+                    musicText.innerText = "Tắt Nhạc 🎵";
+                    isMusicPlaying = true;
+                }).catch(err => {
+                    console.log("Audio autoplay prevented: ", err);
+                });
+            }
+        }
+
+        // Mưa hoa Sakura
+        const petalCanvas = document.getElementById('petal-canvas');
+        const ctx = petalCanvas.getContext('2d');
+        let petals = [];
+
+        function resizeCanvas() {
+            petalCanvas.width = window.innerWidth;
+            petalCanvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        for (let i = 0; i < 30; i++) {
+            petals.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                size: Math.random() * 8 + 8,
+                speedY: Math.random() * 1.2 + 0.6,
+                speedX: Math.random() * 0.8 - 0.4,
+                angle: Math.random() * 360,
+                spin: (Math.random() - 0.5) * 1.5,
+                color: Math.random() > 0.5 ? '#fda4af' : '#fecdd3'
+            });
+        }
+
+        function drawPetal(x, y, size, angle, color) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate((angle * Math.PI) / 180);
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.bezierCurveTo(-size, -size / 2, -size, size, 0, size * 1.5);
+            ctx.bezierCurveTo(size, size, size, -size / 2, 0, 0);
+            ctx.fillStyle = color;
+            ctx.globalAlpha = 0.75;
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function animatePetals() {
+            ctx.clearRect(0, 0, petalCanvas.width, petalCanvas.height);
+
+            petals.forEach(p => {
+                p.y += p.speedY;
+                p.x += Math.sin(p.y * 0.01) + p.speedX;
+                p.angle += p.spin;
+
+                if (p.y > window.innerHeight + 20) {
+                    p.y = -20;
+                    p.x = Math.random() * window.innerWidth;
+                }
+
+                drawPetal(p.x, p.y, p.size, p.angle, p.color);
+            });
+
+            requestAnimationFrame(animatePetals);
+        }
+
+        window.onload = function() {
+            animatePetals();
+        };
+    </script>
+</body>
+</html>
